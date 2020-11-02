@@ -1,0 +1,100 @@
+/* 기본 레이아웃 */
+body{
+  display: flex;
+  flex-flow: row wrap;
+  /* direction을 row로 주고 직계자식의 width: 100%로 주면 column처럼 보이고 영역간에 이동이 자유로움 */
+}
+
+.app-header-container,
+.app-main,
+.app-footer-container{
+  width: 100%;
+}
+
+/* header가 맨 마지막으로 이동 */
+/* .app-header-container{
+  order: 1;
+} */
+
+/* 헤더 */
+/* 공통 헤더 */
+.app-header-container{
+  background: yellow;
+}
+
+.app-header{
+  background: pink;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  /* 모바일, 데스크탑 모두 로고와 네비는 수평정렬, 가운데 공백은 있으므로 */
+  align-items: center;
+  /* 로고와, 네비게이션의 중심이 일치시키기 위한 코드 */
+}
+
+
+@media all and (max-width: 767px){
+  /* 모바일 헤더 */
+  /* 햄버거 메뉴 */
+  .is-open-menu{
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    padding: 0;
+    /* 뷰포트가 늘어날 때 버튼도 같이 늘어나게 하고싶은경우 (50px/375)% 값을 width값으로 주면됨, 이런 경우 SASS를 쓰는 것이 더 좋음 */
+  }
+
+  .is-open-menu .ir{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    /* 가로 세로는 부모와 같게 */
+    background: violet url(./../images/button-navigation.svg) no-repeat 50% 50%;
+    /* 백터이미지이기때문에 background-size를 마음대로 늘릴수 있음 */
+
+  }
+  /* 모바일 네비게이션 */
+  .app-navigation{
+    display: none;
+    position: fixed;
+    background: green;
+    top: 0;
+    left: 0;
+    /* right: 0; */
+    /* width값 100%를 left: 0, right: 0 트릭으로 줌 */
+    width: 100vw;
+    height: 100vh;
+    /* 트릭 안쓰고, 위 2개 속성을 쓰면 모바일 디바이스마다 풀커버링됨 */
+  
+  }
+}
+
+
+
+
+
+@media all and (min-width: 768px){
+  /* 데스크탑 헤더 */
+  .app-header-container{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    /* 가운데 배치를 위한 코드 */
+  }
+
+  .app-header{
+    width: 768px;
+  }
+
+  .is-open-menu, 
+  .is-close-menu{
+    display: none;
+  }
+
+  /* 데스크탑 네비게이션 */
+  .app-navigation ul{
+    display: flex;
+    flex-flow: row nowrap;
+    /* 네비게이션 안에 항목 수평정렬을 위한 코드 */
+  }
+}
