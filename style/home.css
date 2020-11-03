@@ -50,6 +50,8 @@
 /* 추천음료 리스트 */
 .ediya-recommend-list{
   position: relative;
+  /* .recommend-list에 position:relative를 줘서 기준을 잡아주는 것보다 list에 주는 것이 좋다. */
+  /* .recommend-list는 화면 크기에 따라 변하지만, ul은 변하기 않기때문에 여기에 기준을 잡는 것이 좋음 */
 }
 
 .ediya-recommend-beverage{
@@ -60,6 +62,7 @@
   /* img에 .response class를 줘도됨 */
   max-width: 100%;
   height: auto;
+  /* width값만 주면 알아서 height값은 조정됨 */
   animation: bounce 400ms infinite alternate ease-in-out;
 }
 
