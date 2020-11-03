@@ -1,5 +1,8 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 @import url(//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css);
+@import url(./valiable.css);
+/* 아래있는 파일중에 위의 폰트색 변수를 사용할 수도 있으니까 선언순서를 올려줌 */
 @import url(./default.css);
 @import url(./component.css);
 @import url(./common.css);
+@import url(./home.css);
