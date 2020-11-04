@@ -38,7 +38,6 @@
 .member-id,
 .member-password{
   position: relative;
-  border-bottom: 1px solid currentColor;
   height: 48px;
 }
 .member-id{
@@ -54,23 +53,94 @@
   left: 0.5em;
   top: 15px;
   font-size: 1.8rem;
+  transition: all 0.2s;
+  /* 글자크기와 위치가 자연스럽게 변함, transition을 주기전 요소에게 적용 */
 }
 
 .member-id input, 
 .member-password input{
   width: 100%;
-  height: 100%;
+  height: 48px;
   background: transparent;
   border: 0;
   color: #fff;
   padding: 0 1em;
   /* 한글자만큼 여백을 줌 */
+  border-bottom: 1px solid currentColor;
 }
 
 .member-id--error, 
-.member-password--error,
-.button-password{
+.member-password--error {
   display: none;
+}
+
+.member-form .button-password{
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 15px;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+/* 공통 맴버 폼 상태 디자인
+(is--focus, is--vaild, is-invalid, is--visible) */
+
+.is--focus label,
+.is--valid label,
+.is--invalid label{
+  font-size: 1.3rem;
+  transform: translate(-0.5em, -15px);
+}
+
+/* member-id의 height:48을 height:70이되게 해서 input의 border-bottom를 주고 .is--invalid이면 span을 보이게 block으로 주고 아래로 내려오게 만듦 */
+.member-form .is--invalid{
+  height: 70px;
+}
+
+.member-form .is--invalid [role="alert"]{
+  display: block;
+  margin-top: 5px;
+}
+/* .is--invalid를 id에도 조립하여 사용할 수 있음 */
+
+.member-form .is--valid,
+.member-form .is--invalid{
+  background-repeat: no-repeat;
+  background-position: 100% 20px;
+  /* x축으로 100%이면 상자끝에 배치 */
+}
+
+.member-form .is--valid{
+  background-image: url(../images/icon-checked.svg);
+}
+
+.member-form .is--invalid{
+  background-image: url(../images/icon-warning.svg);
+}
+
+.is--focus .button-password{
+  display: block;
+}
+
+.member-form .button-password .ir {
+  display: block;
+  /* padding: 4px; */
+  width: inherit;
+  height: inherit;
+  background: url(../images/icon-visible.svg) no-repeat 50% 50%;
+}
+
+.member-form .is--visible .button-password .ir {
+  background-image: url(../images/icon-invisible.svg);
+}
+
+.member-form .is--invalid .button-password {
+  right: 20px;
 }
 
 /* 공통 이메일 저장 */

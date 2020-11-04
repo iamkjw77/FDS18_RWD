@@ -58,7 +58,7 @@
         <form action="#" method="POST" class="member-form">
           <fieldset>
             <legend>회원가입 폼</legend>
-            <div class="member-id">
+            <div class="member-id is--valid is-focus">
               <label for="userEmail">이메일</label>
               <input
                      type="email"
@@ -74,7 +74,7 @@
                     class="member-id--error">이메일 입력 방법이 잘못되었습니다. (예: user@domain.io)</span>
                     <!-- 동적으로 쓰여진 값이 맞는지 틀린지 알수있는 aria-live가 필요, 서식이 맞다면 display: none으로 없애기 -->
             </div>
-            <div class="member-password">
+            <div class="member-password is--focus is--visible is--invalid">
               <label for="userPassword">패스워드</label>
               <input
                      type="password"
