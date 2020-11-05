@@ -1,0 +1,128 @@
+/* 공통 음료 목록 */
+.ediya-menu{
+  padding: 20px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* 공통 음료 아이템 */
+.ediya-menu__item{
+  width: 100%;
+  background: var(--theme-bright2);
+  margin-top: 20px;
+  height: 400px;
+  position: relative;
+}
+
+.ediya-menu__item:first-child{
+  margin-top: 0;
+}
+
+.ediya-menu__item [role="button"]{
+  display: block;
+}
+
+.ediya-menu__item figure{
+  margin: 0;
+  padding: 20px 0 40px;
+  text-align: center;
+}
+
+.ediya-menu__item img{
+  transform: scale(0.85);
+  /* 변하기 전의 값에 transition 적용 */
+  transition: all 0.3s ease-in;
+}
+
+.ediya-menu__item [role="button"]:hover img{
+  /* a에 마우스를 올렸을 때, img태그  */
+  transform: scale(1);
+}
+
+/* 공통 음료 상세 정보 */
+.ediya-menu__item--detail{
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.85);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  border: 1px solid darkblue;
+  padding: 40px 20px;
+}
+
+.ediya-menu__item--name{
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 400;
+  border-bottom: 2px solid var(--theme-dark);
+  padding-bottom: 20px;
+}
+
+.ediya-menu__item--name [lang="en"]{
+  display: block;
+  color: var(--theme-disable);
+  font-size: 1.4rem;
+}
+
+.ediya-menu__item--multi-column{
+  background: #eee;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  column-count: 2;
+  column-rule: 1px solid #0f0f0f;
+  padding: 10px 0;
+}
+
+.ediya-menu__item--multi-column dl{
+  font-size: 0;
+  /* 엔터 공백을 없애려고 font-size: 0; */
+  margin-top: 0;
+  padding-bottom: 15px;
+}
+
+.ediya-menu__item--multi-column dt,dd{
+  display: inline-block;
+  width: 50%;
+  font-size: 1.3rem;
+  /* 부모의 폰트사이즈를 상속하므로 폰트사이즈 재정의 */
+  text-indent: 20px;
+  margin-top: 15px;
+}
+
+.ediya-menu__item--multi-column dd{
+  margin-left: 0;
+}
+
+.ediya-menu__item--detail .is-close-panel{
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+@media all and (min-width: 768px){
+  /* 데스크탑 음료 목록 */
+  .ediya-menu{
+    padding-left: 0;
+    padding-right: 0;
+    width: 740px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+    /* 가운데 공백을 위해 */
+  }
+
+  .ediya-menu__item{
+    width: 360px;
+  }
+
+  .ediya-menu__item:nth-child(2){
+    margin-top: 0;
+  }
+}
