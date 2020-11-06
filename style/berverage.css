@@ -84,7 +84,8 @@
   padding-bottom: 15px;
 }
 
-.ediya-menu__item--multi-column dt,dd{
+.ediya-menu__item--multi-column dt,
+.ediya-menu__item--multi-column dd{
   display: inline-block;
   width: 50%;
   font-size: 1.3rem;
